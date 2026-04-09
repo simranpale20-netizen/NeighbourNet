@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — NeighbourNet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --green:#2ecc71; --dark-green:#27ae60;
+      --dark:#1a1a2e; --card-bg:#16213e;
+      --text-light:#e0e0e0;
+    }
+    body { background-color:var(--dark); color:var(--text-light); font-family:'Segoe UI',sans-serif; }
+    .navbar { background-color:var(--card-bg); border-bottom:2px solid var(--green); padding:14px 0; }
+    .navbar-brand { color:var(--green) !important; font-size:1.5rem; font-weight:700; }
+    .nav-link { color:var(--text-light) !important; font-weight:500; margin:0 6px; }
+    .nav-link:hover { color:var(--green) !important; }
+    .btn-post { background-color:var(--green); color:#fff; border-radius:20px; font-weight:600; padding:6px 18px; border:none; }
+    .about-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      padding: 60px 20px 80px;
+      text-align: center;
+    }
+    .about-hero h2 { font-size:2.2rem; font-weight:800; color:#fff; }
+    .about-hero h2 span { color:var(--green); }
+    .about-hero p { color:#aaa; max-width:500px; margin:12px auto 0; }
+    .mission-card {
+      background: var(--card-bg);
+      border: 1px solid #ffffff15;
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 24px;
+      transition: border-color 0.2s;
+      height: 100%;
+    }
+    .mission-card:hover { border-color: var(--green); }
+    .mission-icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .mission-card h5 { color:#fff; font-weight:700; margin-bottom:8px; }
+    .mission-card p { color:#aaa; font-size:0.9rem; line-height:1.6; margin:0; }
+    .stats-section {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 24px;
+      border: 1px solid #ffffff15;
+    }
+    .stat-item { text-align:center; padding: 16px; }
+    .stat-number { font-size:2rem; font-weight:800; color:var(--green); }
+    .stat-label { color:#aaa; font-size:0.85rem; margin-top:4px; }
+    .creator-card {
+      background: linear-gradient(135deg, #16213e, #0f3460);
+      border: 1px solid var(--green);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .creator-avatar {
+      width: 70px; height: 70px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex; align-items:center; justify-content:center;
+      font-size: 1.8rem;
+      margin: 0 auto 16px;
+    }
+    .creator-card h5 { color:#fff; font-weight:700; }
+    .creator-card p { color:#aaa; font-size:0.88rem; }
+    .btn-back {
+      background-color: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 28px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .btn-back:hover { background-color:var(--dark-green); color:#fff; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="bi bi-people-fill"></i> NeighbourNet
+      </a>
+      <div class="d-flex gap-3 align-items-center">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="post.html" class="nav-link">Post a Request</a>
+        <a href="about.html" class="nav-link" style="color:var(--green) !important">About</a>
+      </div>
+    </div>
+  </nav>
+
+<!-- HERO -->
+  <div class="about-hero">
+    <h2>About <span>NeighbourNet</span></h2>
+    <p>A platform built on one belief — that every community has enough kindness to help its own people.</p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="container" style="margin-top:-30px;">
+
+    <!-- MISSION CARDS -->
+    <div class="row g-4 mb-4">
+      <div class="col-12 col-md-4">
+        <div class="mission-card">
+          <div class="mission-icon">🤝</div>
+          <h5>Our Mission</h5>
+          <p>To connect people in need with willing helpers in their own locality — fast, free, and with zero middlemen.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="mission-card">
+          <div class="mission-icon">💡</div>
+          <h5>The Problem We Solve</h5>
+          <p>People in urgent need don't know who to ask. Neighbours who want to help don't know who needs it. We bridge that gap.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="mission-card">
+          <div class="mission-icon">🌱</div>
+          <h5>Our Values</h5>
+          <p>No money. No ads. No data selling. Just a simple board where humanity shows up for itself.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-section">
+      <div class="row">
+        <div class="col-4 stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Requests Posted</div>
+        </div>
+        <div class="col-4 stat-item">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Cities Covered</div>
+        </div>
+        <div class="col-4 stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Requests Resolved</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CREATOR -->
+    <div class="creator-card">
+      <div class="creator-avatar">👩‍💻</div>
+      <h5>Built by Simran</h5>
+      <p>B.Sc. IT Student · Dombivli<br/>
+      Built this project to solve a real problem I see in my community every day.</p>
+      <a href="index.html" class="btn-back">
+        <i class="bi bi-arrow-left me-1"></i> Back to Feed
+      </a>
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
