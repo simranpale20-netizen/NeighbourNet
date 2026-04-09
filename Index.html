@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeighbourNet</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --green:     #2ecc71;
+      --dark-green:#27ae60;
+      --dark:      #1a1a2e;
+      --card-bg:   #16213e;
+      --text-light:#e0e0e0;
+      --accent:    #f39c12;
+    }
+    body {
+      background-color: var(--dark);
+      color: var(--text-light);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+      background-color: var(--card-bg);
+      border-bottom: 2px solid var(--green);
+      padding: 14px 0;
+    }
+    .navbar-brand {
+      color: var(--green) !important;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .nav-link {
+      color: var(--text-light) !important;
+      font-weight: 500;
+      margin: 0 6px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--green) !important;
+    }
+    .btn-post {
+      background-color: var(--green);
+      color: #fff;
+      border-radius: 20px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border: none;
+    }
+    .btn-post:hover {
+      background-color: var(--dark-green);
+      color: #fff;
+    }
+    .hero-section {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    }
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .hero-title span {
+      color: var(--green);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #aaa;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+    .btn-hero {
+      background-color: var(--green);
+      color: #fff;
+      border-radius: 25px;
+      padding: 10px 28px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+    }
+    .btn-hero:hover {
+      background-color: var(--dark-green);
+      color: #fff;
+    }
+    .btn-outline-hero {
+      border: 2px solid var(--green);
+      color: var(--green);
+      border-radius: 25px;
+      padding: 10px 28px;
+      font-weight: 700;
+      font-size: 1rem;
+      background: transparent;
+    }
+    .btn-outline-hero:hover {
+      background-color: var(--green);
+      color: #fff;
+    }
+  /* FILTER BUTTONS */
+.filter-section {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid #ffffff15;
+}
+.filter-scroll {
+  overflow-x: auto;
+  padding-bottom: 4px;
+  flex-wrap: nowrap;
+}
+.btn-filter {
+  background-color: #ffffff10;
+  color: var(--text-light);
+  border: 1px solid #ffffff20;
+  border-radius: 20px;
+  padding: 6px 16px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+.btn-filter.active, .btn-filter:hover {
+  background-color: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+/* CARDS */
+.section-title {
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  margin-left: 6px;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.help-card {
+  background-color: var(--card-bg);
+  border: 1px solid #ffffff15;
+  border-radius: 16px;
+  padding: 20px;
+  transition: transform 0.2s, border-color 0.2s;
+  height: 100%;
+}
+.help-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--green);
+}
+.card-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.card-desc {
+  color: #aaa;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.card-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: #888;
+}
+.card-meta i { color: var(--green); }
+
+/* BADGES */
+.badge { font-size: 0.78rem; padding: 5px 10px; border-radius: 20px; font-weight: 600; }
+.badge-blood   { background:#ff000020; color:#ff6b6b; border:1px solid #ff6b6b50; }
+.badge-books   { background:#3498db20; color:#5dade2; border:1px solid #5dade250; }
+.badge-tutor   { background:#9b59b620; color:#bb8fce; border:1px solid #bb8fce50; }
+.badge-food    { background:#f39c1220; color:#f5b041; border:1px solid #f5b04150; }
+.badge-repair  { background:#1abc9c20; color:#48c9b0; border:1px solid #48c9b050; }
+.badge-general { background:#ffffff15; color:#aaa;    border:1px solid #ffffff25; }
+
+/* HELP BUTTON */
+.btn-can-help {
+  background: transparent;
+  border: 1.5px solid var(--green);
+  color: var(--green);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.btn-can-help:hover {
+  background-color: var(--green);
+  color: #fff;
+}</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-people-fill"></i> NeighbourNet
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Post a Request</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        </ul>
+        <button class="btn btn-post ms-3">+ Ask for Help</button>
+      </div>
+    </div>
+  </nav>
+  <!-- HERO SECTION -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="hero-title">Your Community, <span>Got Your Back.</span></h1>
+      <p class="hero-sub">Post a request. Get help from real neighbours. No money, no apps — just people.</p>
+      <button class="btn btn-hero me-2">Ask for Help</button>
+      <button class="btn btn-outline-hero">Browse Requests</button>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html><!-- HERO SECTION -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="hero-title">Your Community, <span>Got Your Back.</span></h1>
+      <p class="hero-sub">Post a request. Get help from real neighbours. No money, no apps — just people.</p>
+      <button class="btn btn-hero me-2">Ask for Help</button>
+      <button class="btn btn-outline-hero">Browse Requests</button>
+    </div>
+  </section>
+  !-- CATEGORY FILTER -->
+  <section class="filter-section py-4">
+    <div class="container">
+      <div class="filter-scroll d-flex gap-2">
+        <button class="btn btn-filter active">All</button>
+        <button class="btn btn-filter">🩸 Blood</button>
+        <button class="btn btn-filter">📚 Books</button>
+        <button class="btn btn-filter">🎓 Tutoring</button>
+        <button class="btn btn-filter">🍱 Food</button>
+        <button class="btn btn-filter">🔧 Repair</button>
+        <button class="btn btn-filter">💬 General</button>
+      </div>
+    </div>
+  </section>
+!-- CARDS FEED -->
+  <section class="cards-section py-4">
+    <div class="container">
+      <h5 class="section-title mb-4">Recent Requests <span class="live-dot"></span></h5>
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="help-card">
+            <span class="badge badge-blood">🩸 Blood</span>
+            <h6 class="card-title mt-2">Urgent — B+ Blood Needed</h6>
+            <p class="card-desc">My father needs B+ blood urgently at Dombivli hospital. Please contact if you can help.</p>
+            <div class="card-meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Dombivli East</span>
+              <span><i class="bi bi-clock"></i> 2 hrs ago</span>
+            </div>
+            <button class="btn btn-can-help mt-3 w-100">I Can Help</button>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="help-card">
+            <span class="badge badge-books">📚 Books</span>
+            <h6 class="card-title mt-2">Free 11th Science Books</h6>
+            <p class="card-desc">Giving away 11th std Science and Maths textbooks for free. Good condition. Self pickup only.</p>
+            <div class="card-meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Kalyan West</span>
+              <span><i class="bi bi-clock"></i> 5 hrs ago</span>
+            </div>
+            <button class="btn btn-can-help mt-3 w-100">I Can Help</button>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="help-card">
+            <span class="badge badge-tutor">🎓 Tutoring</span>
+            <h6 class="card-title mt-2">Need Maths Tutor for 10th</h6>
+            <p class="card-desc">Looking for a volunteer or affordable tutor for my daughter's SSC Maths. Thane area preferred.</p>
+            <div class="card-meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Thane</span>
+              <span><i class="bi bi-clock"></i> 1 day ago</span>
+            </div>
+            <button class="btn btn-can-help mt-3 w-100">I Can Help</button>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="help-card">
+            <span class="badge badge-food">🍱 Food</span>
+            <h6 class="card-title mt-2">Tiffin Available for Students</h6>
+            <p class="card-desc">Homemade tiffin available at very low cost for students staying alone. Veg only. Contact for details.</p>
+            <div class="card-meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Dombivli West</span>
+              <span><i class="bi bi-clock"></i> 3 hrs ago</span>
+            </div>
+            <button class="btn btn-can-help mt-3 w-100">I Can Help</button>
+          </div>
+        </div>
+
+<!-- Card 5 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="help-card">
+            <span class="badge badge-repair">🔧 Repair</span>
+            <h6 class="card-title mt-2">Anyone Know Electrician?</h6>
+            <p class="card-desc">Need a trusted local electrician for home wiring work. Please recommend someone reliable.</p>
+            <div class="card-meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Ambernath</span>
+              <span><i class="bi bi-clock"></i> 6 hrs ago</span>
+            </div>
+            <button class="btn btn-can-help mt-3 w-100">I Can Help</button>
+          </div>
+        </div>
+
+<!-- Card 6 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="help-card">
+            <span class="badge badge-general">💬 General</span>
+            <h6 class="card-title mt-2">Old Wheelchair to Donate</h6>
+            <p class="card-desc">We have a wheelchair in good condition to donate to someone who genuinely needs it. Free of cost.</p>
+            <div class="card-meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Ulhasnagar</span>
+              <span><i class="bi bi-clock"></i> 2 days ago</span>
+            </div>
+            <button class="btn btn-can-help mt-3 w-100">I Can Help</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html
