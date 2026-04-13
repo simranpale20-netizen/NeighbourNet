@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,201 +8,62 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
   <style>
     :root {
-      --green:     #2ecc71;
-      --dark-green:#27ae60;
-      --dark:      #1a1a2e;
-      --card-bg:   #16213e;
+      --green:#2ecc71; --dark-green:#27ae60;
+      --dark:#1a1a2e; --card-bg:#16213e;
       --text-light:#e0e0e0;
-      --accent:    #f39c12;
     }
-    body {
-      background-color: var(--dark);
-      color: var(--text-light);
-      font-family: 'Segoe UI', sans-serif;
-    }
-    /* NAVBAR */
-    .navbar {
-      background-color: var(--card-bg);
-      border-bottom: 2px solid var(--green);
-      padding: 14px 0;
-    }
-    .navbar-brand {
-      color: var(--green) !important;
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .nav-link {
-      color: var(--text-light) !important;
-      font-weight: 500;
-      margin: 0 6px;
-    }
-    .nav-link:hover {
-      color: var(--green) !important;
-    }
-    .btn-post {
-      background-color: var(--green);
-      color: #fff;
-      border-radius: 20px;
-      font-weight: 600;
-      padding: 6px 18px;
-      border: none;
-    }
-    /* PAGE HEADER */
-    .page-header {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-      padding: 50px 20px 40px;
-      text-align: center;
-    }
-    .page-header h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #fff;
-    }
-    .page-header h2 span {
-      color: var(--green);
-    }
-    .page-header p {
-      color: #aaa;
-      font-size: 0.95rem;
-    }
-    /* FORM CARD */
-    .form-card {
-      background-color: var(--card-bg);
-      border: 1px solid #ffffff15;
-      border-radius: 20px;
-      padding: 36px 28px;
-      max-width: 600px;
-      margin: -30px auto 60px;
-    }
-    .form-label {
-      color: var(--text-light);
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
-    .form-control, .form-select {
-      background-color: #0f1b35;
-      border: 1px solid #ffffff20;
-      color: var(--text-light);
-      border-radius: 10px;
-      padding: 10px 14px;
-    }
-    .form-control:focus, .form-select:focus {
-      background-color: #0f1b35;
-      border-color: var(--green);
-      color: var(--text-light);
-      box-shadow: 0 0 0 3px #2ecc7130;
-    }
-    .form-control::placeholder {
-      color: #555;
-    }
-    .form-select option {
-      background-color: #0f1b35;
-      color: var(--text-light);
-    }
-    .char-count {
-      font-size: 0.78rem;
-      color: #666;
-      text-align: right;
-    }
-    /* CATEGORY PILLS */
-    .category-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .category-pills input[type="radio"] {
-      display: none;
-    }
-    .category-pills label {
-      background-color: #ffffff10;
-      border: 1px solid #ffffff20;
-      border-radius: 20px;
-      padding: 7px 16px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: var(--text-light);
-    }
-    .category-pills input[type="radio"]:checked + label {
-      background-color: var(--green);
-      border-color: var(--green);
-      color: #fff;
-      font-weight: 600;
-    }
-    /* URGENCY */
-    .urgency-btns {
-      display: flex;
-      gap: 10px;
-    }
-    .urgency-btns input[type="radio"] { display: none; }
-    .urgency-btns label {
-      flex: 1;
-      text-align: center;
-      padding: 8px;
-      border-radius: 10px;
-      border: 1px solid #ffffff20;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: var(--text-light);
-    }
+    body { background-color:var(--dark); color:var(--text-light); font-family:'Segoe UI',sans-serif; }
+    .navbar { background-color:var(--card-bg); border-bottom:2px solid var(--green); padding:14px 0; }
+    .navbar-brand { color:var(--green) !important; font-size:1.5rem; font-weight:700; }
+    .nav-link { color:var(--text-light) !important; font-weight:500; margin:0 6px; }
+    .nav-link:hover { color:var(--green) !important; }
+    .btn-post { background-color:var(--green); color:#fff; border-radius:20px; font-weight:600; padding:6px 18px; border:none; text-decoration:none; }
+    .page-header { background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%); padding:50px 20px 40px; text-align:center; }
+    .page-header h2 { font-size:2rem; font-weight:800; color:#fff; }
+    .page-header h2 span { color:var(--green); }
+    .page-header p { color:#aaa; font-size:0.95rem; }
+    .form-card { background-color:var(--card-bg); border:1px solid #ffffff15; border-radius:20px; padding:36px 28px; max-width:600px; margin:-30px auto 60px; }
+    .form-label { color:var(--text-light); font-weight:600; font-size:0.9rem; margin-bottom:6px; }
+    .form-control, .form-select { background-color:#0f1b35; border:1px solid #ffffff20; color:var(--text-light); border-radius:10px; padding:10px 14px; }
+    .form-control:focus, .form-select:focus { background-color:#0f1b35; border-color:var(--green); color:var(--text-light); box-shadow:0 0 0 3px #2ecc7130; }
+    .form-control::placeholder { color:#555; }
+    .char-count { font-size:0.78rem; color:#666; text-align:right; }
+    .category-pills { display:flex; flex-wrap:wrap; gap:10px; }
+    .category-pills input[type="radio"] { display:none; }
+    .category-pills label { background-color:#ffffff10; border:1px solid #ffffff20; border-radius:20px; padding:7px 16px; font-size:0.85rem; cursor:pointer; transition:all 0.2s; color:var(--text-light); }
+    .category-pills input[type="radio"]:checked + label { background-color:var(--green); border-color:var(--green); color:#fff; font-weight:600; }
+    .urgency-btns { display:flex;gap:10px; }
+    .urgency-btns input[type="radio"] { display:none; }
+    .urgency-btns label { flex:1; text-align:center; padding:8px; border-radius:10px; border:1px solid #ffffff20; font-size:0.85rem; cursor:pointer; transition:all 0.2s; color:var(--text-light); }
     .urgency-btns input#u1:checked + label { background:#ff6b6b30; border-color:#ff6b6b; color:#ff6b6b; font-weight:700; }
     .urgency-btns input#u2:checked + label { background:#f5b04130; border-color:#f5b041; color:#f5b041; font-weight:700; }
     .urgency-btns input#u3:checked + label { background:#2ecc7130; border-color:#2ecc71; color:#2ecc71; font-weight:700; }
-    /* SUBMIT */
-    .btn-submit {
-      background-color: var(--green);
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      padding: 14px;
-      font-size: 1rem;
-      font-weight: 700;
-      width: 100%;
-      transition: background 0.2s;
-    }
-    .btn-submit:hover {
-      background-color: var(--dark-green);
-      color: #fff;
-    }
-    .divider {
-      border-color: #ffffff15;
-      margin: 24px 0;
-    }
-    .section-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #666;
-      margin-bottom: 12px;
-    }
+    .btn-submit { background-color:var(--green); color:#fff; border:none; border-radius:12px; padding:14px; font-size:1rem; font-weight:700; width:100%; transition:background 0.2s; }
+    .btn-submit:hover { background-color:var(--dark-green); color:#fff; }
+    .divider { border-color:#ffffff15; margin:24px 0; }
+    .section-label { font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:#666; margin-bottom:12px; }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
+<nav class="navbar sticky-top">
+    <div class="container d-flex justify-content-between align-items-center">
       <a class="navbar-brand" href="index.html">
         <i class="bi bi-people-fill"></i> NeighbourNet
       </a>
-      <div class="d-flex">
-        <a href="index.html" class="btn btn-post">← Back to Feed</a>
-      </div>
+      <a href="index.html" class="btn-post">← Back to Feed</a>
     </div>
   </nav>
-  !-- PAGE HEADER -->
+
   <div class="page-header">
     <h2>Post a <span>Help Request</span></h2>
     <p>Your community is here for you. Describe what you need.</p>
   </div>
 
-  <!-- FORM -->
   <div class="container">
     <div class="form-card">
-      !-- CATEGORY -->
-      <p class="section-label">Select Category</p>
+
+<p class="section-label">Select Category</p>
       <div class="category-pills mb-4">
         <input type="radio" name="category" id="c1" checked/>
         <label for="c1">🩸 Blood</label>
@@ -217,51 +78,38 @@
         <input type="radio" name="category" id="c6"/>
         <label for="c6">💬 General</label>
       </div>
-
       <hr class="divider"/>
 
-<!-- TITLE -->
       <div class="mb-3">
         <label class="form-label">Request Title</label>
         <input type="text" class="form-control" id="titleInput" placeholder="e.g. Need B+ blood donor urgently" maxlength="60"/>
         <div class="char-count"><span id="titleCount">0</span>/60</div>
       </div>
 
-      <!-- DESCRIPTION -->
       <div class="mb-3">
         <label class="form-label">Description</label>
-        <textarea class="form-control" id="descInput" rows="4" placeholder="Explain your situation clearly so people can help better..." maxlength="300"></textarea>
+        <textarea class="form-control" id="descInput" rows="4" placeholder="Explain your situation clearly..." maxlength="300"></textarea>
         <div class="char-count"><span id="descCount">0</span>/300</div>
       </div>
 
-      <!-- LOCATION -->
       <div class="mb-3">
         <label class="form-label"><i class="bi bi-geo-alt-fill" style="color:var(--green)"></i> Location</label>
-        <input type="text" class="form-control" placeholder="e.g. Dombivli East, near station"/>
-      </div>
-<hr class="divider"/>
-
-      <!-- URGENCY -->
-      <p class="section-label">Urgency Level</p>
-      <div class="urgency-btns mb-4">
-        <input type="radio" name="urgency" id="u1"/>
-        <label for="u1">🔴 Urgent</label>
-        <input type="radio" name="urgency" id="u2" checked/>
-        <label for="u2">🟡 Normal</label>
-        <input type="radio" name="urgency" id="u3"/>
-        <label for="u3">🟢 Low</label>
+        <input type="text" class="form-control" id="locationInput" placeholder="e.g. Dombivli East, near station"/>
       </div>
 
-      <!-- SUBMIT -->
-      <button class="btn-submit" onclick="submitRequest()">
+      <div class="mb-3">
+        <label class="form-label"><i class="bi bi-telephone-fill" style="color:var(--green)"></i> Contact Number</label>
+        <input type="tel" class="form-control" id="contactInput" placeholder="Your phone number"/>
+      </div>
+       <button class="btn-submit" onclick="submitRequest()">
         <i class="bi bi-send-fill me-2"></i>Post My Request
       </button>
 
     </div>
   </div>
-  script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Character counters
     document.getElementById('titleInput').addEventListener('input', function() {
       document.getElementById('titleCount').textContent = this.value.length;
     });
@@ -269,17 +117,60 @@
       document.getElementById('descCount').textContent = this.value.length;
     });
 
-    // Submit handler
+function showError(inputId, message) {
+      const input = document.getElementById(inputId);
+      input.style.borderColor = '#ff6b6b';
+      input.style.boxShadow = '0 0 0 3px #ff6b6b30';
+      let error = document.getElementById(inputId + '_error');
+      if (!error) {
+        error = document.createElement('div');
+        error.id = inputId + '_error';
+        error.style.cssText = 'color:#ff6b6b; font-size:0.8rem; margin-top:4px;';
+        input.parentNode.appendChild(error);
+      }
+      error.textContent = '⚠️ ' + message;
+    }
+    function clearError(inputId) {
+      const input = document.getElementById(inputId);
+      input.style.borderColor = '#ffffff20';
+      input.style.boxShadow = 'none';
+      const error = document.getElementById(inputId + '_error');
+      if (error) error.textContent = '';
+    }
+
+    document.getElementById('titleInput').addEventListener('input', function() {
+      if (this.value.trim()) clearError('titleInput');
+    });
+    document.getElementById('descInput').addEventListener('input', function() {
+      if (this.value.trim()) clearError('descInput');
+    });
+    document.getElementById('locationInput').addEventListener('input', function() {
+      if (this.value.trim()) clearError('locationInput');
+    });
+    document.getElementById('contactInput').addEventListener('input', function() {
+      if (this.value.trim()) clearError('contactInput');
+    });
     function submitRequest() {
+      let valid = true;
       const title = document.getElementById('titleInput').value.trim();
       const desc = document.getElementById('descInput').value.trim();
-      if (!title || !desc) {
-        alert('Please fill in the title and description!');
-        return;
-      }
-      alert('✅ Your request has been posted! Your community will see it shortly.');
+      const location = document.getElementById('locationInput').value.trim();
+      const contact = document.getElementById('contactInput').value.trim();
+
+      if (!title) { showError('titleInput', 'Please enter a title for your request'); valid = false; }
+      if (!desc) { showError('descInput', 'Please describe your request'); valid = false; }
+      if (!location) { showError('locationInput', 'Please enter your location'); valid = false; }
+      if (!contact) { showError('contactInput', 'Please enter your contact number'); valid = false; }
+      else if (contact.length < 10) { showError('contactInput', 'Please enter a valid 10 digit number'); valid = false; }
+
+      if (!valid) return;
+
+      const btn = document.querySelector('.btn-submit');
+      btn.textContent = '✅ Request Posted!';
+      btn.style.background = 'var(--dark-green)';
+      btn.disabled = true;
+      setTimeout(() => { window.location.href = 'index.html'; }, 2000);
     }
   </script>
 </body>
 </html>
-
