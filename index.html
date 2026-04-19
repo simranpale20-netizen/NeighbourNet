@@ -244,6 +244,41 @@
   <script>
     const filterBtns = document.querySelectorAll('.btn-filter');
     const cards = document.querySelectorAll('[data-category]');
+    // LOAD POSTS FROM LOCALSTORAGE
+  function loadSavedPosts() {
+    const posts = JSON.parse(localStorage.getItem('neighbournet_posts') || '[]');
+    if (posts.length === 0) return;
+
+    const badgeClasses = {
+      blood: 'badge-blood', books: 'badge-books',
+      tutoring: 'badge-tutor', food: 'badge-food',
+      repair: 'badge-repair', general: 'badge-general'
+    };
+
+    const cardsContainer = document.querySelector('.row.g-4');
+
+    posts.forEach(post => {
+      const col = document.createElement('div');
+      col.className = 'col-12 col-md-6 col-lg-4';
+      col.setAttribute('data-category', post.category);
+      col.innerHTML = `
+        <div class="help-card" style="border-color:var(--green)">
+          <span class="badge ${badgeClasses[post.category]}">${post.categoryLabel}</span>
+          <span class="badge ms-1" style="background:#2ecc7120;color:var(--green);border:1px solid var(--green)">✨ New</span>
+          <h6 class="card-title mt-2">${post.title}</h6>
+          <p class="card-desc">${post.desc}</p>
+          <div class="card-meta">
+            <span><i class="bi bi-geo-alt-fill"></i> ${post.location}</span>
+            <span><i class="bi bi-clock"></i> ${post.time}</span>
+          </div>
+          <button class="btn btn-can-help mt-3 w-100">I Can Help</button>
+        </div>
+      `;
+      cardsContainer.prepend(col);
+    });
+  }
+
+  loadSavedPosts();
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', function() {
