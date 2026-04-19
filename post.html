@@ -149,28 +149,65 @@ function showError(inputId, message) {
     });
     document.getElementById('contactInput').addEventListener('input', function() {
       if (this.value.trim()) clearError('contactInput');
-    });
-    function submitRequest() {
-      let valid = true;
-      const title = document.getElementById('titleInput').value.trim();
-      const desc = document.getElementById('descInput').value.trim();
-      const location = document.getElementById('locationInput').value.trim();
-      const contact = document.getElementById('contactInput').value.trim();
-
-      if (!title) { showError('titleInput', 'Please enter a title for your request'); valid = false; }
-      if (!desc) { showError('descInput', 'Please describe your request'); valid = false; }
-      if (!location) { showError('locationInput', 'Please enter your location'); valid = false; }
-      if (!contact) { showError('contactInput', 'Please enter your contact number'); valid = false; }
-      else if (contact.length < 10) { showError('contactInput', 'Please enter a valid 10 digit number'); valid = false; }
-
-      if (!valid) return;
-
-      const btn = document.querySelector('.btn-submit');
-      btn.textContent = '✅ Request Posted!';
-      btn.style.background = 'var(--dark-green)';
-      btn.disabled = true;
-      setTimeout(() => { window.location.href = 'index.html'; }, 2000);
     }
-  </script>
-</body>
-</html>
+    function submitRequest() {
+  let valid = true;
+  const title = document.getElementById('titleInput').value.trim();
+  const desc = document.getElementById('descInput').value.trim();
+  const location = document.getElementById('locationInput').value.trim();
+  const contact = document.getElementById('contactInput').value.trim();
+
+  if (!title) { showError('titleInput', 'Please enter a title'); valid = false; }
+  if (!desc) { showError('descInput', 'Please describe your request'); valid = false; }
+  if (!location) { showError('locationInput', 'Please enter your location'); valid = false; }
+  if (!contact) { showError('contactInput', 'Please enter your contact number'); valid = false; }
+  else if (contact.length < 10) { showError('contactInput', 'Please enter a valid 10 digit number'); valid = false; }
+
+  if (!valid) return;
+
+  // GET SELECTED CATEGORY
+  const categoryLabels = {
+    c1: 'blood', c2: 'books', c3: 'tutoring',
+    c4: 'food', c5: 'repair', c6: 'general'
+  };
+  const categoryEmojis = {
+    blood: '🩸 Blood', books: '📚 Books', tutoring: '🎓 Tutoring',
+    food: '🍱 Food', repair: '🔧 Repair', general: '💬 General'
+  };
+  let selectedCategory = 'general';
+  for (const [id, cat] of Object.entries(categoryLabels)) {
+    if (document.getElementById(id).checked) {
+      selectedCategory = cat;
+      break;
+    }
+  }
+
+  // CREATE POST OBJECT
+  const post = {
+    id: Date.now(),
+    title: title,
+    desc: desc,
+    location: location,
+    category: selectedCategory,
+    categoryLabel: categoryEmojis[selectedCategory],
+    time: 'Just now'
+  };
+
+  // SAVE TO LOCALSTORAGE
+  const posts = JSON.parse(localStorage.getItem('neighbournet_posts') || '[]');
+  posts.unshift(post);
+  localStorage.setItem('neighbournet_posts', JSON.stringify(posts));
+
+  // SUCCESS
+  const btn = document.querySelector('.btn-submit');
+  btn.textContent = '✅ Request Posted!';
+  btn.style.background = 'var(--dark-green)';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    window.location.href = 'index.html';
+  }, 1500);
+}                                                         
+    }
+
+                                                             
